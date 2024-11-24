@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
-import 'screens/splash_screen.dart';
-import 'screens/login_screen.dart';
-import 'screens/home_screen.dart';
+import 'package:bab5/pages/book_list_page.dart';
+import 'package:bab5/pages/add_book_page.dart';
+import 'package:bab5/pages/edit_book_page.dart';
+import 'package:bab5/pages/book_detail_page.dart';
 
 void main() {
-  runApp(HMTINewsApp());
+  runApp(MyApp());
 }
 
-class HMTINewsApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'HMTI NEWS',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      title: 'Daftar Buku',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
       initialRoute: '/',
       routes: {
-        '/': (context) => SplashScreen(),
-        '/login': (context) => LoginScreen(),
-        '/home': (context) => HomeScreen(),
+        '/': (context) => BookListPage(),
+        '/add': (context) => AddBookPage(),
+        '/edit': (context) => EditBookPage(bookId: 0),
+        '/detail': (context) => BookDetailPage(bookId: 0),
       },
     );
   }
